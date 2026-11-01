@@ -13,6 +13,59 @@ Un tema de escritorio completo para **KDE Plasma 6** con estética de **Japón a
 paisaje animado que sigue el sol de tu ciudad, ventanas, iconos y cursor pixel, una barra mínima y un
 HUD con datos del sistema, de la red y de desarrollo. Todo se genera con **Python puro** (sin dependencias).
 
+## Capturas
+
+![PixelZen de día: paisaje pixel art con el panel de datos a la derecha](capturas/escritorio-dia.png)
+
+**El escritorio.** Un paisaje japonés dibujado píxel a píxel (pagoda, torii, lago, montaña nevada y cerezo en flor), una barra superior mínima y, en la columna libre de la derecha, el panel de datos (HUD).
+
+### El fondo sigue al sol
+
+| Amanecer | Noche |
+|---|---|
+| ![Amanecer con cielo violeta y rosa](capturas/escritorio-amanecer.png) | ![Noche con luna llena, estrellas y la pagoda iluminada](capturas/escritorio-noche.png) |
+
+El fondo no es una imagen fija: es una escena animada que cambia con la **hora real de tu ciudad**.
+
+- El sol sale por el este, cruza el cielo y se pone por el oeste según la fecha y tu latitud. El cálculo se hace en local, así que **no usa red**.
+- El paisaje existe en tres iluminaciones (noche, hora dorada y día) que se mezclan según la altura del sol.
+- De noche aparecen la luna, las estrellas, las luces de la pagoda y las luciérnagas.
+- La ubicación sale de tu zona horaria, o de una ciudad que fijes con `./instalar.sh --casa=LAT,LON,"Ciudad"`.
+- Para verlo anochecer sin esperar: `~/.local/share/pixelzen/src/hora.sh demo` (24 horas en 90 segundos). Con `hora.sh real` vuelve a la hora del reloj.
+
+### El panel de datos (HUD)
+
+El panel de la derecha es un widget de Plasma con un motor de datos en Python que **solo lee** (`/proc`, `sysfs`, `ss`, `ip`, `git`): sin red y sin `sudo`. Tiene seis tarjetas:
+
+- **Tiempo:** reloj, calendario japonés y fase lunar.
+- **Sistema:** CPU, RAM, temperatura y batería.
+- **Red:** conexión, IP, VPN, velocidad y puertos en escucha (los expuestos a toda la red, en ámbar).
+- **Dev:** estado de tus repositorios git, versiones de Python, Node, Go y Rust, y servicios fallidos.
+- **Herramientas:** botones que abren una terminal con `btop`, `ss`, `dig`, `ping`... según lo que tengas instalado.
+- **Haiku:** un verso clásico que rota con fundido.
+
+Se escala con la altura de la pantalla, así que ocupa lo mismo en un portátil que en un monitor grande.
+
+### Pantalla de bloqueo
+
+![Pantalla de bloqueo con el mismo paisaje](capturas/bloqueo.png)
+
+La pantalla de bloqueo usa el mismo fondo animado.
+
+### Iconos y cursor
+
+![Muestras del tema de iconos: apps, carpetas, tipos de archivo, acciones y estado](capturas/iconos.png)
+
+Unos 3000 nombres de icono de KDE traducidos a glifos de [Pixelarticons](https://github.com/halfmage/pixelarticons) (licencia MIT), con azulejos de aplicaciones, carpetas y hojas de archivo dibujados para este tema. Lo que no cubre cae a Breeze, así que nada se rompe. El cursor es una flecha con la punta roja de un torii, escrito a mano en formato Xcursor.
+
+### Terminal
+
+![Terminal con el prompt de fish a juego](capturas/terminal.png)
+
+Paleta propia para Alacritty y Konsole, con un prompt de fish a juego. La fuente de datos y terminal es Departure Mono, elegida entre ocho por ser la más legible (distingue `0` de `O`, `I` de `l` de `1`).
+
+*Las capturas usan el modo demo, que sustituye tu red, IP y VPN por datos ficticios (`touch ~/.config/pixelzen/demo`).*
+
 ## Qué incluye
 
 | Pieza | Qué es |
