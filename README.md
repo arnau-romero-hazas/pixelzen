@@ -3,6 +3,8 @@
 > Tema de escritorio para **KDE Plasma 6** en pixel art: paisaje japonés animado que sigue al sol de tu ciudad, panel de datos, iconos y cursor a juego.
 > Artículo con capturas y cómo está hecho: **https://ralcaniz.dev/posts/pixelzen-escritorio-kde-pixel-art/**
 
+![PixelZen de noche: la luna, las estrellas y las luces de la pagoda, con el fondo animado](capturas/animacion-noche.gif)
+
 **Instalación rápida:** descarga `pixelzen-1.0.tar.gz` desde [Releases](../../releases), descomprímelo y haz doble clic en **«Instalar PixelZen»** (o ejecuta `./instalar.sh`).
 
 SHA-256 del paquete 1.0: `d11705d136cf5e91ca4bc23061971ad66b7fe0ab895d3a112123022c729d89ba`
@@ -32,6 +34,18 @@ El fondo no es una imagen fija: es una escena animada que cambia con la **hora r
 - De noche aparecen la luna, las estrellas, las luces de la pagoda y las luciérnagas.
 - La ubicación sale de tu zona horaria, o de una ciudad que fijes con `./instalar.sh --casa=LAT,LON,"Ciudad"`.
 - Para verlo anochecer sin esperar: `~/.local/share/pixelzen/src/hora.sh demo` (24 horas en 90 segundos). Con `hora.sh real` vuelve a la hora del reloj.
+
+### En movimiento
+
+Cuatro momentos del día, grabados de verdad (unos 10 segundos cada uno). Se mueven las nubes, los pétalos, los farolillos, las luciérnagas, las grullas y los destellos del lago.
+
+| Noche | Amanecer |
+|---|---|
+| ![Animación de la noche](capturas/animacion-noche.gif) | ![Animación del amanecer](capturas/animacion-amanecer.gif) |
+| **Hora dorada** | **Día** |
+| ![Animación de la hora dorada](capturas/animacion-dorada.gif) | ![Animación del día](capturas/animacion-dia.gif) |
+
+*En cada animación el fondo tiene fijada una hora (con `hora.sh`), mientras que el reloj del panel marca la hora real. Los datos del panel son ficticios (modo demo).*
 
 ### El panel de datos (HUD)
 
