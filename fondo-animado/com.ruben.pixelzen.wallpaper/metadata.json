@@ -1,0 +1,14 @@
+{
+    "KPackageStructure": "Plasma/Wallpaper",
+    "KPlugin": {
+        "Id": "com.ruben.pixelzen.wallpaper",
+        "Name": "PixelZen Animado",
+        "Description": "Paisaje pixel art japones con estrellas, nubes, farolillos, petalos y luciernagas animados",
+        "Authors": [{ "Name": "Ruben" }],
+        "Category": "",
+        "Icon": "preferences-desktop-wallpaper",
+        "License": "GPL-3.0+",
+        "Version": "1.0"
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell"
+}

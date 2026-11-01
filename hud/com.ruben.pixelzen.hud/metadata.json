@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Id": "com.ruben.pixelzen.hud",
+        "Name": "PixelZen HUD",
+        "Description": "Panel pixel art con datos en vivo: reloj, sistema, red, dev y herramientas",
+        "Category": "System Information",
+        "Authors": [{ "Name": "Ruben" }],
+        "License": "GPL-3.0+",
+        "Version": "1.0",
+        "EnabledByDefault": true,
+        "Icon": "utilities-system-monitor"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
