@@ -1,0 +1,9 @@
+{
+  "uuid": "pixelzen@mosqui1988.github.io",
+  "name": "PixelZen",
+  "description": "Fondo pixel art animado que sigue al sol de tu ciudad y panel de datos del sistema (RAM, CPU, batería, red). Port para GNOME del tema PixelZen de KDE Plasma 6.",
+  "shell-version": ["46", "47", "48"],
+  "url": "https://github.com/mosqui1988/pixelzen",
+  "settings-schema": "org.gnome.shell.extensions.pixelzen",
+  "version": 1
+}

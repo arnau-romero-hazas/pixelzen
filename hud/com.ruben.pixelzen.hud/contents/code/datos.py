@@ -86,10 +86,16 @@ def red(e):
             e['net'] = [iface, rx, tx, ahora]
         except Exception: pass
         if os.path.exists(f'/sys/class/net/{iface}/wireless'):
-            l = sh(['iw', 'dev', iface, 'link'])
-            m = re.search(r'SSID: (.+)', l); out['ssid'] = m.group(1).strip() if m else None
-            m = re.search(r'signal: (-?\d+) dBm', l)
-            if m: out['senal'] = max(0, min(100, 2 * (int(m.group(1)) + 100)))
+            if shutil.which('iw'):
+                l = sh(['iw', 'dev', iface, 'link'])
+                m = re.search(r'SSID: (.+)', l); out['ssid'] = m.group(1).strip() if m else None
+                m = re.search(r'signal: (-?\d+) dBm', l)
+                if m: out['senal'] = max(0, min(100, 2 * (int(m.group(1)) + 100)))
+            else:   # Ubuntu no trae iw: NetworkManager (sin volver a escanear)
+                for l in sh(['nmcli', '-t', '-f', 'IN-USE,SIGNAL,SSID', 'dev', 'wifi', 'list', 'ifname', iface, '--rescan', 'no']).splitlines():
+                    if l.startswith('*:'):
+                        _, sen, ssid = l.split(':', 2); out['ssid'] = ssid.replace('\\:', ':') or None
+                        out['senal'] = int(sen) if sen.isdigit() else None; break
     for v in sorted(os.listdir('/sys/class/net')):
         if re.match(r'(tailscale|tun|wg|proton|nordlynx|vpn)', v) and leer(f'/sys/class/net/{v}/operstate') != 'down':
             a = sh(['ip', '-o', '-4', 'addr', 'show', v]); m = re.search(r'inet (\S+?)/', a)
@@ -128,7 +134,7 @@ def puertos():
 def repos(e):
     ahora = time.time()
     if e.get('repos_t', 0) < ahora - 600:
-        raices = [os.path.expanduser(p) for p in ('~/proyectos', '~/dev', '~/code', '~/src', '~/projects', '~/git', '~/Documentos', '~/Obsidian', '~/Escritorio')]
+        raices = [os.path.expanduser(p) for p in ('~/proyectos', '~/dev', '~/code', '~/src', '~/projects', '~/workspace', '~/git', '~/Documentos', '~/Obsidian', '~/Escritorio')]
         encontrados = []
         for r in raices:
             if not os.path.isdir(r): continue
@@ -152,8 +158,11 @@ def version(cmd, args=('--version',)):
     m = re.search(r'(\d+\.\d+(?:\.\d+)?)', o); return m.group(1) if m else '?'
 
 def edad_pacman():
-    try: return int((time.time() - os.path.getmtime('/var/lib/pacman/sync/core.db')) / 3600)
-    except Exception: return None
+    """Horas desde la ultima sincronizacion de paquetes (pacman en Arch, apt en Debian/Ubuntu)."""
+    for f in ('/var/lib/pacman/sync/core.db', '/var/lib/apt/periodic/update-success-stamp', '/var/lib/apt/lists'):
+        try: return int((time.time() - os.path.getmtime(f)) / 3600)
+        except Exception: pass
+    return None
 
 def lento():
     e = carga_estado()

@@ -114,6 +114,9 @@ tar xzf pixelzen-1.0.tar.gz && cd pixelzen-1.0
 pero puedes instalar solo las piezas estándar: `./instalar.sh --portable` (iconos, cursor y fuentes; experimental,
 sin probar fuera de Plasma). Después elige `PixelZen` y `PixelZenCursor` en los ajustes de tu escritorio.
 
+**Si usas GNOME (Ubuntu 24.04 o superior):** hay una versión con el fondo animado que sigue al sol y el panel
+de datos, hecha como extensión de GNOME Shell: `cd gnome && ./instalar.sh`. Detalles en [gnome/LEEME.md](gnome/LEEME.md).
+
 Solo toca tu usuario, nunca usa `sudo`. Antes de cambiar nada guarda una copia de tus ajustes en
 `~/.local/share/pixelzen/backup/original/`.
 
