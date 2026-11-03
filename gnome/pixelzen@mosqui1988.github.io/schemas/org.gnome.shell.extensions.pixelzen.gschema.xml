@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.pixelzen" path="/org/gnome/shell/extensions/pixelzen/">
+    <key name="animar" type="b">
+      <default>true</default>
+      <summary>Animar el paisaje</summary>
+      <description>Si es falso, el fondo solo cambia con la altura del sol (una vez por minuto).</description>
+    </key>
+    <key name="fps" type="i">
+      <range min="2" max="24"/>
+      <default>8</default>
+      <summary>Cuadros por segundo de la animación</summary>
+    </key>
+    <key name="hora-simulada" type="d">
+      <default>-1</default>
+      <summary>Hora fija del fondo (-1 = hora real)</summary>
+      <description>Por ejemplo 21.5 son las 21:30.</description>
+    </key>
+    <key name="ciclo-rapido" type="b">
+      <default>false</default>
+      <summary>Ciclo rápido: 24 horas en 90 segundos</summary>
+    </key>
+    <key name="hud" type="b">
+      <default>true</default>
+      <summary>Mostrar el panel de datos</summary>
+    </key>
+    <key name="hud-monitor" type="i">
+      <default>-1</default>
+      <summary>Monitor del panel de datos (-1 = principal)</summary>
+    </key>
+    <key name="todos-monitores" type="b">
+      <default>true</default>
+      <summary>Fondo animado en todos los monitores</summary>
+      <description>Si es falso, solo en el monitor principal (gasta menos).</description>
+    </key>
+  </schema>
+</schemalist>
