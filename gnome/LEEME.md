@@ -1,7 +1,6 @@
-# PixelZen para GNOME (Ubuntu 24.04+)
+# PixelZen para GNOME
 
-Versión de PixelZen para **GNOME Shell 46 o superior** (Ubuntu 24.04, X11 o Wayland). Incluye las dos piezas
-que más se echan de menos fuera de Plasma:
+Versión de PixelZen para **GNOME Shell** que incluye las dos piezas que más se echan de menos fuera de Plasma:
 
 - **Fondo animado que sigue al sol.** Es el mismo paisaje y la misma lógica que el plugin de Plasma: el sol
   y la luna recorren el cielo según tu hora y tu ubicación, el paisaje pasa de noche a hora dorada y a día,
@@ -13,6 +12,19 @@ que más se echan de menos fuera de Plasma:
 
 Es una extensión de GNOME Shell, así que dibuja en el fondo real del escritorio: queda por debajo de las
 ventanas y de los iconos del escritorio de Ubuntu, en todos los monitores.
+
+| Día | Anochecer | Noche (monitor secundario, sin panel) |
+|---|---|---|
+| ![De día](../docs/capturas-gnome/gnome-dia.png) | ![Al anochecer](../docs/capturas-gnome/gnome-anochecer.png) | ![De noche](../docs/capturas-gnome/gnome-noche.png) |
+
+Capturas en Ubuntu 24.04 con GNOME 46 sobre X11. Los datos personales del panel están pixelados.
+
+> **Mantenimiento y estado.** Este port lo mantiene [@arnau-romero-hazas](https://github.com/arnau-romero-hazas),
+> no el autor de PixelZen, que usa KDE Plasma y no puede probarlo. Los fallos de la versión GNOME conviene
+> abrirlos como issue mencionando a @arnau-romero-hazas.
+>
+> **Solo está probado en Ubuntu 24.04 con GNOME 46 sobre X11.** Wayland y GNOME 47 o 48 deberían funcionar
+> (`metadata.json` los declara y el código contempla sus diferencias de API), pero nadie lo ha verificado.
 
 ## Instalar
 
@@ -96,6 +108,3 @@ número de monitores.
 ```bash
 ./desinstalar.sh   # quita la extensión y las fuentes y devuelve tu fondo anterior
 ```
-
-Probado en Ubuntu 24.04 con GNOME 46 sobre X11. `metadata.json` declara también las versiones 47 y 48, que
-tienen pequeñas diferencias de API ya contempladas en el código, pero no se han probado.
